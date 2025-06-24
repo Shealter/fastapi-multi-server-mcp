@@ -111,18 +111,18 @@ To connect specific server to inspector,
 
 Set, 
 
-1. Transport Type: StreamableHTTP
+1. Transport Type: `StreamableHTTP`
 
-2. URL: 
+2. URLs: 
 
-for news: http://localhost:10000/news/mcp/
-for weather: http://localhost:10000/weather/mcp/
-for currency: http://localhost:10000/currency/mcp/
-for quotes: http://localhost:10000/quotes/mcp/
+- for news: http://localhost:10000/news/mcp/
+- for weather: http://localhost:10000/weather/mcp/
+- for currency: http://localhost:10000/currency/mcp/
+- for quotes: http://localhost:10000/quotes/mcp/
 
 3. Click connect.
 
-See the attached image below for more details.
+it will open inspector window like this:
 
 ![Inspector](inspector.png)
 
@@ -159,27 +159,27 @@ pytest tests/test_weather.py
 
 ### Weather Server (/weather)
 
-get_current_weather - Get current weather for a city
-get_weather_forecast - Get 5-day weather forecast
-get_weather_by_coordinates - Get weather by latitude/longitude
+    get_current_weather - Get current weather for a city
+    get_weather_forecast - Get 5-day weather forecast
+    get_weather_by_coordinates - Get weather by latitude/longitude
 
 ### News Server (/news)
 
-get_top_headlines - Get top news headlines
-search_news - Search news articles by keyword
-get_news_by_category - Get news by category (business, tech, sports, etc.)
+    get_top_headlines - Get top news headlines
+    search_news - Search news articles by keyword
+    get_news_by_category - Get news by category (business, tech, sports, etc.)
 
 ### Currency Server (/currency)
 
-get_exchange_rates - Get current exchange rates
-convert_currency - Convert between currencies
-get_supported_currencies - List all supported currencies
+    get_exchange_rates - Get current exchange rates
+    convert_currency - Convert between currencies
+    get_supported_currencies - List all supported currencies
 
 ### Quote Server (/quotes)
 
-get_random_quote - Get a random inspirational quote
-get_quote_by_category - Get quotes by category
-get_random_fact - Get a random interesting fact
+    get_random_quote - Get a random inspirational quote
+    get_quote_by_category - Get quotes by category
+    get_random_fact - Get a random interesting fact
 
 🚀 Deployment
 
