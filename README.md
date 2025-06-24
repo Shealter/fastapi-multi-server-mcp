@@ -8,7 +8,6 @@ This project includes 5 different MCP servers:
 
 - **Weather Server** – OpenWeatherMap API integration for weather data
 - **News Server** – NewsAPI integration for latest news articles
-- **GitHub Server** – GitHub API for repository and user information
 - **Currency Server** – Exchange rates and currency conversion
 - **Quote Server** – Inspirational quotes and random facts
 
@@ -17,6 +16,37 @@ This project includes 5 different MCP servers:
 - Python 3.13+
 - [UV](https://github.com/astral-sh/uv) package manager
 - API keys for external services (see Configuration section)
+
+📁 Project Structure
+
+```
+fastapi-multi-server-mcp/
+├── main.py                 # FastAPI application entry point
+├── requirements.txt        # Python dependencies
+├── pyproject.toml         # UV project configuration
+├── .env.example           # Environment variables template
+├── README.md              # This file
+├── servers/               # MCP servers directory
+│   ├── __init__.py
+│   ├── weather_server.py  # Weather API MCP server
+│   ├── news_server.py     # News API MCP server
+│   ├── currency_server.py # Currency API MCP server
+│   └── quote_server.py    # Quotes API MCP server
+├── utils/                 # Utility modules
+│   ├── __init__.py
+│   ├── api_clients.py     # HTTP client utilities
+│   └── config.py          # Configuration management
+├── tests/                 # Test suite
+│   ├── __init__.py
+│   ├── test_weather.py
+│   ├── test_news.py
+│   ├── test_currency.py
+│   └── test_quote.py
+└── docs/                  # Documentation
+    ├── api_reference.md
+    └── deployment.md
+```
+
 
 ## 🛠️ Installation
 
@@ -49,8 +79,6 @@ OPENWEATHER_API_KEY=your_openweather_api_key
 # News API
 NEWS_API_KEY=your_news_api_key
 
-# GitHub API (optional, for higher rate limits)
-GITHUB_TOKEN=your_github_token
 
 # Exchange Rates API
 EXCHANGE_RATES_API_KEY=your_exchange_rates_api_key
@@ -65,7 +93,7 @@ HOST=0.0.0.0
 - OpenWeatherMap: Register at [openweathermap.org](https://openweathermap.org)
 - NewsAPI: Get free API key at [newsapi.org](https://newsapi.org)
 - Exchange Rates: Register at [exchangerate-api.com](https://www.exchangerate-api.com)
-- Quo
+- Quote API: Get free API key at [quotesapi.com](https://quotesapi.com)
 
 ## 🏃‍♂️ Running the Application
 
@@ -73,11 +101,30 @@ HOST=0.0.0.0
 
 ```bash
 # Using UV
-uv run uvicorn main:app --reload --host 0.0.0.0 --port 10000
+uv run uvicorn main:app --reload --host 0.0.0.0 --port 10000 --reload
 
-# Using Python directly
-python main.py
+# Using `npx` to debug the running application,
+npx @modelcontextprotocol/inspector uv run uvicorn main:app
 ```
+
+To connect specific server to inspector, 
+
+Set, 
+
+1. Transport Type: StreamableHTTP
+
+2. URL: 
+
+for news: http://localhost:10000/news/mcp/
+for weather: http://localhost:10000/weather/mcp/
+for currency: http://localhost:10000/currency/mcp/
+for quotes: http://localhost:10000/quotes/mcp/
+
+3. Click connect.
+
+See the attached image below for more details.
+
+![Inspector](inspector.png)
 
 ### Production
 
@@ -92,7 +139,6 @@ Once running, your MCP servers will be available at:
 
 - Weather Server: [http://localhost:10000/weather](http://localhost:10000/weather)
 - News Server: [http://localhost:10000/news](http://localhost:10000/news)
-- GitHub Server: [http://localhost:10000/github](http://localhost:10000/github)
 - Currency Server: [http://localhost:10000/currency](http://localhost:10000/currency)
 - Quote Server: [http://localhost:10000/quotes](http://localhost:10000/quotes)
 
@@ -106,36 +152,8 @@ pytest
 pytest --cov=.
 
 # Run specific server tests
-pytest tests/test_weather_server.py
+pytest tests/test_weather.py
 ```
-📁 Project Structure
-fastapi-multi-server-mcp/
-├── main.py                 # FastAPI application entry point
-├── requirements.txt        # Python dependencies
-├── pyproject.toml         # UV project configuration
-├── .env.example           # Environment variables template
-├── README.md              # This file
-├── servers/               # MCP servers directory
-│   ├── __init__.py
-│   ├── weather_server.py  # Weather API MCP server
-│   ├── news_server.py     # News API MCP server
-│   ├── github_server.py   # GitHub API MCP server
-│   ├── currency_server.py # Currency API MCP server
-│   └── quote_server.py    # Quotes API MCP server
-├── utils/                 # Utility modules
-│   ├── __init__.py
-│   ├── api_clients.py     # HTTP client utilities
-│   └── config.py          # Configuration management
-├── tests/                 # Test suite
-│   ├── __init__.py
-│   ├── test_weather_server.py
-│   ├── test_news_server.py
-│   ├── test_github_server.py
-│   ├── test_currency_server.py
-│   └── test_quote_server.py
-└── docs/                  # Documentation
-    ├── api_reference.md
-    └── deployment.md
 
 ## 🛠️ Available Tools by Server
 
