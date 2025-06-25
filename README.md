@@ -129,16 +129,20 @@ Set,
 
 it will open inspector window like this:
 
-quotes server:
+Quotes server:
+
 ![Inspector](inspector/quotes.png)
 
-news server:
+News server:
+
 ![Inspector](inspector/news.png)
 
-weather server:
+Weather server:
+
 ![Inspector](inspector/weather.png)
 
-currency server:
+Currency server:
+
 ![Inspector](inspector/currency.png)
 
 
