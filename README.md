@@ -2,6 +2,11 @@
 
 A comprehensive FastAPI application that hosts multiple Model Context Protocol (MCP) servers, each providing access to different public APIs and services.
 
+
+## Work Demo
+
+![Work Demo](work_demo.gif)
+
 ## 🚀 Features
 
 This project includes 5 different MCP servers:
@@ -125,6 +130,9 @@ Set,
 it will open inspector window like this:
 
 ![Inspector](inspector.png)
+
+
+As of June 2025, Windsurf and Cursor supports two transport types for MCP servers: `stdio` and `/sse`, but not `StreamableHTTP`. So using `stdio` or `/sse` as transport type is recommended. But with inspector, you can connect to the MCP server running on FastAPI with any transport type.
 
 ### Production
 
