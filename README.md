@@ -155,12 +155,15 @@ gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:10000
 
 ## 📚 API Endpoints
 
-Once running, your MCP servers will be available at:
+Once running everything successfully, 
 
-- Weather Server: [http://localhost:10000/weather](http://localhost:10000/weather)
-- News Server: [http://localhost:10000/news](http://localhost:10000/news)
-- Currency Server: [http://localhost:10000/currency](http://localhost:10000/currency)
-- Quote Server: [http://localhost:10000/quotes](http://localhost:10000/quotes)
+Your FastAPI server will be available at: http://localhost:10000, docs at http://localhost:10000/docs
+and your MCP servers will be available at:
+
+- Weather Server: http://localhost:10000/weather
+- News Server: http://localhost:10000/news
+- Currency Server: http://localhost:10000/currency
+- Quote Server: http://localhost:10000/quotes
 
 ## 🧪 Testing
 
