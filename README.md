@@ -5,7 +5,7 @@ A comprehensive FastAPI application that hosts multiple Model Context Protocol (
 
 ## Work Demo
 
-![Work Demo](work_demo.gif)
+[fastmcp-multi-server-mcp.webm](https://github.com/user-attachments/assets/d626b52e-f52f-4102-b269-7dad10577f90)
 
 ## 🚀 Features
 
@@ -129,7 +129,17 @@ Set,
 
 it will open inspector window like this:
 
-![Inspector](inspector.png)
+quotes server:
+![Inspector](inspector/quotes.png)
+
+news server:
+![Inspector](inspector/news.png)
+
+weather server:
+![Inspector](inspector/weather.png)
+
+currency server:
+![Inspector](inspector/currency.png)
 
 
 As of June 2025, Windsurf and Cursor supports two transport types for MCP servers: `stdio` and `/sse`, but not `StreamableHTTP`. So using `stdio` or `/sse` as transport type is recommended. But with inspector, you can connect to the MCP server running on FastAPI with any transport type.
@@ -165,6 +175,9 @@ pytest tests/test_weather.py
 
 ## 🛠️ Available Tools by Server
 
+<details>
+  <summary>🖼️ Click to see the tool details</summary>
+
 ### Weather Server (/weather)
 
     get_current_weather - Get current weather for a city
@@ -188,6 +201,8 @@ pytest tests/test_weather.py
     get_random_quote - Get a random inspirational quote
     get_quote_by_category - Get quotes by category
     get_random_fact - Get a random interesting fact
+
+</details>
 
 🚀 Deployment
 
