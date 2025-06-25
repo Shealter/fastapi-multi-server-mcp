@@ -125,9 +125,7 @@ Set,
 - for currency: http://localhost:10000/currency/mcp/
 - for quotes: http://localhost:10000/quotes/mcp/
 
-3. Click connect.
-
-it will open inspector window like this:
+3. Click connect, it will open inspector window like this:
 
 Quotes server:
 
